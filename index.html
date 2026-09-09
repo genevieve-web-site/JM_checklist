@@ -20,6 +20,9 @@ header{padding:46px 0 26px;border-bottom:1px solid var(--linha)}
 .marca .sub{font-family:"Poppins",sans-serif;font-size:10px;font-weight:400;letter-spacing:.34em;color:var(--ouro);align-self:center}
 h1{font-family:"Playfair Display",serif;font-weight:500;font-size:34px;line-height:1.2;color:var(--verde);margin:26px 0 6px}
 .legenda{color:var(--tinta-fraca);font-size:14px;max-width:56ch;margin:0}
+.orientacao{margin:16px 0 0;font-size:14px;color:var(--tinta-fraca)}
+.orientacao a{color:var(--verde);text-underline-offset:3px}
+.orientacao a:focus-visible{outline:2px solid var(--verde-med);outline-offset:3px}
 .progresso{display:flex;align-items:center;gap:16px;padding:22px 0 26px;border-bottom:1px solid var(--linha)}
 .barra{flex:1;height:3px;background:var(--linha);position:relative;overflow:hidden}
 .barra span{position:absolute;inset:0 auto 0 0;width:0%;background:linear-gradient(90deg,var(--ouro),var(--ouro-claro));transition:width .35s cubic-bezier(.4,0,.2,1)}
@@ -87,6 +90,7 @@ button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2p
 <div class="marca"><span class="jm">JM</span><span class="risco"></span><span class="carv">Carvalho</span><span class="sub">CONSULTORIA</span></div>
 <h1>Checklist de fechamento<br>do site institucional</h1>
 <p class="legenda">Controle do que já está em mãos e do que ainda precisa vir do cliente para publicar o site em jmcarvalhoconsultoria.com.br.</p>
+<p class="orientacao">Envie todas as mídias pelo WhatsApp <a href="https://wa.me/5535997382410" target="_blank" rel="noopener">(35) 99738-2410</a>. Para textos e demais respostas, preencha o formulário abaixo.</p>
 </header>
 <div class="progresso">
 <div class="barra" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="47" aria-valuenow="0"><span id="preenchimento"></span></div>
