@@ -16,7 +16,6 @@ const SECOES = [
       {id:"ci2", txt:"Quem somos, missão, visão e valores", nota:"Texto completo do manual de relacionamento comercial"},
       {id:"ci3", txt:"Descrição dos quatro serviços", nota:"Departamento Pessoal, RH, Segurança do Trabalho e Gestão Documental"},
       {id:"ci4", txt:"Empresas parceiras e obras atendidas", nota:"Base para a seção de clientes e portfólio"},
-      {id:"ci5", txt:"Referência de tom de comunicação", nota:"Comunicado institucional recebido serve de parâmetro"},
       {id:"ci6", txt:"Depoimentos de clientes", nota:"Texto e autorização de uso, se a seção entrar no site"},
       {id:"ci7", txt:"Fotos reais de equipe, escritório ou obras", nota:"Ou confirmar se o site usará banco de imagens"},
       {id:"ci8", txt:"Definição dos ajustes vindos do Design 2", nota:"Cliente aprovou o Design 1 mas ainda não detalhou o que quer aproveitar"}
