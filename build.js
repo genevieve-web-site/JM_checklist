@@ -10,6 +10,6 @@ for (const sec of secoes) if (sec.imagem && !fs.existsSync(sec.imagem)) throw ne
 const html = fs.readFileSync('index.html', 'utf8').replace('<div id="lista"></div>', `<div id="lista">${vm.runInContext('renderizarSecoes()', contexto)}</div>`);
 fs.mkdirSync('dist', {recursive: true});
 fs.writeFileSync('dist/index.html', html);
-for (const arquivo of ['dados.js', 'renderizar.js', 'checklist.js', 'obrigado.html']) fs.copyFileSync(arquivo, path.join('dist', arquivo));
+for (const arquivo of ['dados.js', 'renderizar.js', 'checklist.js', 'obrigado.html', 'checklist-jm-carvalho.html']) fs.copyFileSync(arquivo, path.join('dist', arquivo));
 fs.cpSync('public', 'dist/public', {recursive: true});
 console.log(`Build concluído: ${secoes.length} seções, ${ids.length} itens e ${secoes.filter(sec => sec.imagem).length} imagens. Formulário renderizado no HTML para detecção pela Netlify.`);
