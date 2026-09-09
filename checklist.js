@@ -12,14 +12,13 @@ function atualizar() {
     resumo.push(sec.titulo);
     sec.itens.forEach(it => {
       const linha = document.querySelector(`[data-id="${it.id}"]`);
-      const status = sec.imagem ? avaliacoes[it.id] : (estado[it.id] ? 'Finalizado' : 'Pendente');
+      const status = estado[it.id] ? 'Finalizado' : 'Pendente';
       const revisado = status !== 'Pendente';
       parcial += Number(revisado);
       total++;
-      linha.classList.toggle('pronto', !sec.imagem && estado[it.id]);
-      linha.classList.toggle('reprovado', status === 'Reprovado');
+      linha.classList.toggle('pronto', estado[it.id]);
       linha.querySelector('.selo').textContent = status.toUpperCase();
-      resumo.push(`${it.txt}\nStatus: ${status}\n${it.pergunta ? it.pergunta + '\n' : ''}Resposta: ${respostas[it.id] || 'Não informada'}\n`);
+      resumo.push(`${it.txt}\nStatus: ${status}\n${sec.imagem ? 'Avaliação: ' + avaliacoes[it.id] + '\n' : ''}${it.pergunta ? it.pergunta + '\n' : ''}Resposta: ${respostas[it.id] || 'Não informada'}\n`);
     });
     feitos += parcial;
     document.getElementById(`parcial-${indice}`).textContent = `${parcial} de ${sec.itens.length}`;
@@ -46,7 +45,8 @@ function carregar() {
           atualizar();
         });
       });
-    } else {
+    }
+    {
       const input = document.getElementById(it.id);
       input.checked = estado[it.id];
       input.addEventListener('change', () => {
@@ -75,7 +75,7 @@ function reiniciar() {
     document.getElementById(`resposta-${it.id}`).value = '';
     avaliacoes[it.id] = 'Pendente';
     if (sec.imagem) formulario.elements[`${it.id}-avaliacao`].value = 'Pendente';
-    else document.getElementById(it.id).checked = false;
+    document.getElementById(it.id).checked = false;
   }));
   atualizar();
 }
@@ -90,7 +90,7 @@ formulario.addEventListener('submit', async event => {
   atualizar();
   const dados = new FormData(formulario);
   // Envia também o estado dos itens desmarcados, que o HTML omite por padrão.
-  SECOES.filter(sec => !sec.imagem).forEach(sec => sec.itens.forEach(it => {
+  SECOES.forEach(sec => sec.itens.forEach(it => {
     dados.set(`${it.id}-concluido`, estado[it.id] ? 'Sim' : 'Não');
   }));
   botao.disabled = true;

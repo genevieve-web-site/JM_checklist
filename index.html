@@ -73,13 +73,12 @@ button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2p
 .opcao input:checked+span{background:var(--verde);border-color:var(--verde);color:var(--ouro-claro)}
 .opcao input[value="Reprovado"]:checked+span{background:#7C3530;border-color:#7C3530;color:var(--papel)}
 .opcao input:focus-visible+span{outline:2px solid var(--verde-med);outline-offset:3px}
-.item.reprovado .selo{color:#7C3530;border-color:#7C3530}
 .envio{margin-top:32px}
 .enviar{border:1px solid var(--verde);background:var(--verde);color:var(--papel);border-radius:999px;padding:12px 24px;font:500 14px "Poppins",sans-serif;cursor:pointer}
 .enviar:hover{background:var(--verde-med)}
 .enviar:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
 .enviar:disabled{opacity:.6;cursor:wait}
-@media(max-width:560px){.item{flex-wrap:wrap}.item .corpo{flex-basis:calc(100% - 33px)}.item>.selo{margin-left:33px}.item.design>.selo{margin-left:0}.item.design .corpo{flex-basis:100%}}
+@media(max-width:560px){.item{flex-wrap:wrap}.item .corpo{flex-basis:calc(100% - 33px)}.item>.selo{margin-left:33px}}
 @media(max-width:560px){h1{font-size:27px}.selo{font-size:9px;padding:3px 9px}.item{gap:11px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -94,7 +93,7 @@ button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2p
 </header>
 <div class="progresso">
 <div class="barra" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="44" aria-valuenow="0"><span id="preenchimento"></span></div>
-<div class="conta" aria-live="polite"><span id="feitos">0</span>/<span id="total">0</span><small>revisados</small></div>
+<div class="conta" aria-live="polite"><span id="feitos">0</span>/<span id="total">0</span><small>concluídos</small></div>
 </div>
 <form name="jm-checklist" id="formulario" autocomplete="off" method="POST" action="/obrigado.html" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="jm-checklist">

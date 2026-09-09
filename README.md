@@ -1,6 +1,6 @@
 # Checklist — JM Carvalho Consultoria
 
-Formulário de fechamento e revisão do site, com 44 itens em 12 seções e sete imagens de referência. Inicia sempre com todos os itens pendentes e os campos vazios. Os itens de design têm opções Aprovado, Reprovado e Pendente; todos os itens têm campo de resposta. O progresso conta itens concluídos e avaliações respondidas, inclusive reprovações.
+Formulário de fechamento e revisão do site, com 44 itens em 12 seções e sete imagens de referência. Inicia sempre com todos os itens pendentes e os campos vazios. Os itens de design têm opções Aprovado, Reprovado e Pendente; todos os itens têm campo de resposta. Todos os itens têm uma marcação circular que alterna entre Pendente e Finalizado e atualiza o progresso. Nos itens de design, a avaliação Aprovado/Reprovado/Pendente é independente dessa marcação e também é enviada no formulário.
 
 ## Publicar na Netlify
 
