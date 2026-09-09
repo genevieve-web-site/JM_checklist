@@ -62,10 +62,6 @@ button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2p
 .resposta textarea{display:block;width:100%;min-height:80px;resize:vertical;padding:10px 12px;border:1px solid var(--linha);border-radius:6px;background:var(--papel);color:var(--tinta);font:300 13px/1.6 "Poppins",system-ui,sans-serif}
 .resposta textarea::placeholder{color:var(--tinta-fraca);opacity:1}
 .resposta textarea:focus-visible{outline:2px solid var(--verde-med);outline-offset:2px}
-.identificacao{padding:28px 0;border-bottom:1px solid var(--linha)}
-.identificacao>label{display:block;font-size:13px;margin:14px 0 5px}
-.identificacao>input{width:100%;padding:10px 12px;border:1px solid var(--linha);border-radius:6px;background:var(--papel);color:var(--tinta);font:inherit}
-.identificacao>input:focus-visible{outline:2px solid var(--verde-med);outline-offset:2px}
 .decisao{border:0;padding:0;margin:12px 0;display:flex;flex-wrap:wrap;gap:8px}
 .decisao legend{font-size:12px;color:var(--tinta-fraca);margin-bottom:6px;padding:0}
 .opcao{position:relative;cursor:pointer}
@@ -100,13 +96,6 @@ button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2p
 <input type="hidden" name="form-name" value="jm-checklist">
 <p hidden><label>Não preencha este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <input type="hidden" name="resumo" id="resumo">
-<div class="identificacao">
-<h2>Identificação</h2>
-<p class="nota">Preencha seus dados, revise os itens e envie suas respostas ao final. Você pode enviar uma revisão parcial.</p>
-<label for="responsavel">Nome do responsável *</label><input id="responsavel" name="responsavel" autocomplete="name" required>
-<label for="email">E-mail *</label><input id="email" name="email" type="email" autocomplete="email" required>
-<p class="nota">O rascunho fica salvo neste navegador. Clique em Enviar respostas para encaminhá-lo.</p>
-</div>
 <div id="lista"></div>
 <div class="envio"><button class="enviar" type="submit" id="enviar">Enviar respostas</button><p id="status-envio" role="status" class="nota"></p></div>
 </form>

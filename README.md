@@ -10,13 +10,13 @@ Formulário de fechamento e revisão do site, com 47 itens em 12 seções e sete
 4. Confira se o formulário `jm-checklist` aparece no painel e faça um envio de teste pelo endereço publicado.
 5. Consulte as respostas no painel **Forms → jm-checklist**. Para receber avisos por e-mail, configure uma notificação de formulário no painel com o e-mail desejado.
 
-O build gera todos os campos no HTML estático, permitindo que a Netlify reconheça os campos antes de executar JavaScript. O envio inclui nome, e-mail, estados dos itens, avaliações, respostas e um resumo legível organizado por seção. Envios parciais são permitidos; apenas nome e e-mail são obrigatórios. As imagens de referência estão em `public/`; arquivos do cliente devem ser enviados pelo WhatsApp, conforme indicado nas perguntas.
+O build gera todos os campos no HTML estático, permitindo que a Netlify reconheça os campos antes de executar JavaScript. O envio inclui estados dos itens, avaliações, respostas e um resumo legível organizado por seção. Envios parciais são permitidos, sem exigir identificação. As imagens de referência estão em `public/`; arquivos do cliente devem ser enviados pelo WhatsApp, conforme indicado nas perguntas.
 
 Documentação: [configuração do Netlify Forms](https://docs.netlify.com/manage/forms/setup/) e [notificações](https://docs.netlify.com/manage/forms/notifications/).
 
 ## Rascunho
 
-As marcações, avaliações, respostas e identificação ficam no `localStorage` deste navegador. Só são encaminhadas ao clicar em **Enviar respostas**. Rascunhos antigos são preservados. “Reiniciar checklist” desmarca os itens e deixa as avaliações pendentes, preservando os textos e a identificação. Enviar o formulário não apaga o rascunho.
+As marcações, avaliações e respostas ficam no `localStorage` deste navegador. Só são encaminhadas ao clicar em **Enviar respostas**. Rascunhos antigos são preservados. “Reiniciar checklist” desmarca os itens e deixa as avaliações pendentes, preservando os textos. Enviar o formulário não apaga o rascunho.
 
 ## Verificação local
 

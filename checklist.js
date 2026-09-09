@@ -1,7 +1,6 @@
 const CHAVE = 'jm-carvalho:checklist';
 const CHAVE_RESPOSTAS = 'jm-carvalho:checklist:respostas';
 const CHAVE_AVALIACOES = 'jm-carvalho:checklist:avaliacoes';
-const CHAVE_IDENTIFICACAO = 'jm-carvalho:checklist:identificacao';
 const estado = Object.fromEntries(SECOES.flatMap(s => s.itens.map(i => [i.id, !!i.feito])));
 const respostas = {};
 const avaliacoes = {};
@@ -19,10 +18,6 @@ function salvar() {
     localStorage.setItem(CHAVE, JSON.stringify(estado));
     localStorage.setItem(CHAVE_RESPOSTAS, JSON.stringify(respostas));
     localStorage.setItem(CHAVE_AVALIACOES, JSON.stringify(avaliacoes));
-    localStorage.setItem(CHAVE_IDENTIFICACAO, JSON.stringify({
-      responsavel: formulario.elements.responsavel.value,
-      email: formulario.elements.email.value
-    }));
     document.getElementById('aviso').textContent = '';
   } catch {
     document.getElementById('aviso').textContent = 'O rascunho não está sendo salvo neste navegador. Envie suas respostas antes de fechar a página.';
@@ -62,11 +57,7 @@ function carregar() {
   const salvos = ler(CHAVE);
   const textos = ler(CHAVE_RESPOSTAS);
   const decisoes = ler(CHAVE_AVALIACOES);
-  const identificacao = ler(CHAVE_IDENTIFICACAO);
   if (!document.querySelector('#lista section')) document.getElementById('lista').innerHTML = renderizarSecoes();
-  for (const campo of ['responsavel', 'email']) {
-    if (typeof identificacao[campo] === 'string') formulario.elements[campo].value = identificacao[campo];
-  }
   SECOES.forEach(sec => sec.itens.forEach(it => {
     if (typeof salvos[it.id] === 'boolean') estado[it.id] = salvos[it.id];
     respostas[it.id] = typeof textos[it.id] === 'string' ? textos[it.id] : '';
@@ -100,8 +91,6 @@ function carregar() {
   }));
   atualizar();
 }
-
-for (const campo of ['responsavel', 'email']) formulario.elements[campo].addEventListener('input', salvar);
 
 document.getElementById('limpar').addEventListener('click', () => {
   SECOES.forEach(sec => sec.itens.forEach(it => {
