@@ -1,0 +1,15 @@
+const fs = require('node:fs');
+const vm = require('node:vm');
+const path = require('node:path');
+const contexto = vm.createContext({});
+vm.runInContext(fs.readFileSync('dados.js', 'utf8') + '\n' + fs.readFileSync('renderizar.js', 'utf8'), contexto);
+const secoes = vm.runInContext('SECOES', contexto);
+const ids = secoes.flatMap(sec => sec.itens.map(it => it.id));
+if (new Set(ids).size !== ids.length) throw new Error('IDs duplicados');
+for (const sec of secoes) if (sec.imagem && !fs.existsSync(sec.imagem)) throw new Error(`Imagem ausente: ${sec.imagem}`);
+const html = fs.readFileSync('index.html', 'utf8').replace('<div id="lista"></div>', `<div id="lista">${vm.runInContext('renderizarSecoes()', contexto)}</div>`);
+fs.mkdirSync('dist', {recursive: true});
+fs.writeFileSync('dist/index.html', html);
+for (const arquivo of ['dados.js', 'renderizar.js', 'checklist.js', 'obrigado.html']) fs.copyFileSync(arquivo, path.join('dist', arquivo));
+fs.cpSync('public', 'dist/public', {recursive: true});
+console.log(`Build concluído: ${secoes.length} seções, ${ids.length} itens e ${secoes.filter(sec => sec.imagem).length} imagens. Formulário renderizado no HTML para detecção pela Netlify.`);

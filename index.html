@@ -52,6 +52,35 @@ button.limpar{font-family:"Poppins",sans-serif;font-size:12px;font-weight:400;co
 button.limpar:hover{border-color:var(--ouro);color:var(--ouro)}
 button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2px}
 .aviso{font-size:12px;color:var(--tinta-fraca);padding:10px 0 0}
+.referencia{margin:0 0 20px}
+.referencia a{display:block;border:1px solid var(--linha);background:var(--papel)}
+.referencia a:focus-visible{outline:2px solid var(--verde-med);outline-offset:3px}
+.referencia img{display:block;width:100%;height:auto}
+.referencia figcaption{font-size:12px;color:var(--tinta-fraca);margin-top:7px}
+.resposta{margin-top:12px}
+.resposta label{display:block;font-size:12px;color:var(--tinta-fraca);margin-bottom:5px}
+.resposta textarea{display:block;width:100%;min-height:80px;resize:vertical;padding:10px 12px;border:1px solid var(--linha);border-radius:6px;background:var(--papel);color:var(--tinta);font:300 13px/1.6 "Poppins",system-ui,sans-serif}
+.resposta textarea::placeholder{color:var(--tinta-fraca);opacity:1}
+.resposta textarea:focus-visible{outline:2px solid var(--verde-med);outline-offset:2px}
+.identificacao{padding:28px 0;border-bottom:1px solid var(--linha)}
+.identificacao>label{display:block;font-size:13px;margin:14px 0 5px}
+.identificacao>input{width:100%;padding:10px 12px;border:1px solid var(--linha);border-radius:6px;background:var(--papel);color:var(--tinta);font:inherit}
+.identificacao>input:focus-visible{outline:2px solid var(--verde-med);outline-offset:2px}
+.decisao{border:0;padding:0;margin:12px 0;display:flex;flex-wrap:wrap;gap:8px}
+.decisao legend{font-size:12px;color:var(--tinta-fraca);margin-bottom:6px;padding:0}
+.opcao{position:relative;cursor:pointer}
+.opcao input{position:absolute;opacity:0;width:1px;height:1px}
+.opcao span{display:block;padding:6px 12px;border:1px solid var(--linha);border-radius:999px;font-size:12px;color:var(--tinta-fraca);background:var(--papel)}
+.opcao input:checked+span{background:var(--verde);border-color:var(--verde);color:var(--ouro-claro)}
+.opcao input[value="Reprovado"]:checked+span{background:#7C3530;border-color:#7C3530;color:var(--papel)}
+.opcao input:focus-visible+span{outline:2px solid var(--verde-med);outline-offset:3px}
+.item.reprovado .selo{color:#7C3530;border-color:#7C3530}
+.envio{margin-top:32px}
+.enviar{border:1px solid var(--verde);background:var(--verde);color:var(--papel);border-radius:999px;padding:12px 24px;font:500 14px "Poppins",sans-serif;cursor:pointer}
+.enviar:hover{background:var(--verde-med)}
+.enviar:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
+.enviar:disabled{opacity:.6;cursor:wait}
+@media(max-width:560px){.item{flex-wrap:wrap}.item .corpo{flex-basis:calc(100% - 33px)}.item>.selo{margin-left:33px}.item.design>.selo{margin-left:0}.item.design .corpo{flex-basis:100%}}
 @media(max-width:560px){h1{font-size:27px}.selo{font-size:9px;padding:3px 9px}.item{gap:11px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -64,13 +93,28 @@ button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2p
 <p class="legenda">Controle do que já está em mãos e do que ainda precisa vir do cliente para publicar o site em jmcarvalhoconsultoria.com.br.</p>
 </header>
 <div class="progresso">
-<div class="barra" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="26" aria-valuenow="0"><span id="preenchimento"></span></div>
-<div class="conta" aria-live="polite"><span id="feitos">0</span>/<span id="total">0</span><small>concluídos</small></div>
+<div class="barra" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="47" aria-valuenow="0"><span id="preenchimento"></span></div>
+<div class="conta" aria-live="polite"><span id="feitos">0</span>/<span id="total">0</span><small>revisados</small></div>
+</div>
+<form name="jm-checklist" id="formulario" method="POST" action="/obrigado.html" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="jm-checklist">
+<p hidden><label>Não preencha este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<input type="hidden" name="resumo" id="resumo">
+<div class="identificacao">
+<h2>Identificação</h2>
+<p class="nota">Preencha seus dados, revise os itens e envie suas respostas ao final. Você pode enviar uma revisão parcial.</p>
+<label for="responsavel">Nome do responsável *</label><input id="responsavel" name="responsavel" autocomplete="name" required>
+<label for="email">E-mail *</label><input id="email" name="email" type="email" autocomplete="email" required>
+<p class="nota">O rascunho fica salvo neste navegador. Clique em Enviar respostas para encaminhá-lo.</p>
 </div>
 <div id="lista"></div>
+<div class="envio"><button class="enviar" type="submit" id="enviar">Enviar respostas</button><p id="status-envio" role="status" class="nota"></p></div>
+</form>
 <footer><p class="assinatura">Aline Desenvolvimento Web · para <b>JM Carvalho Consultoria</b></p><button type="button" class="limpar" id="limpar">Reiniciar checklist</button></footer>
 <p class="aviso" id="aviso" role="status"></p>
 </main>
+<script src="dados.js"></script>
+<script src="renderizar.js"></script>
 <script src="checklist.js"></script>
 </body>
 </html>

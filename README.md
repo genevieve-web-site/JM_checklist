@@ -1,20 +1,29 @@
 # Checklist — JM Carvalho Consultoria
 
-Interface estática em HTML, CSS e JavaScript, com o conteúdo e os estilos fornecidos. São 26 itens em cinco seções, com 11 itens concluídos inicialmente.
+Formulário de fechamento e revisão do site, com 47 itens em 12 seções e sete imagens de referência. Mantém os 11 itens inicialmente concluídos. Os itens de design têm opções Aprovado, Reprovado e Pendente; todos os itens têm campo de resposta. O progresso conta itens concluídos e avaliações respondidas, inclusive reprovações.
 
-Abra `index.html` no navegador para usar. As marcações ficam salvas no `localStorage` do navegador; não são compartilhadas entre dispositivos. O botão “Reiniciar checklist” desmarca todos os itens.
+## Publicar na Netlify
 
-## Publicar na Vercel
+1. Importe `genevieve-web-site/JM_checklist`, branch `main`, como um projeto na Netlify.
+2. O `netlify.toml` define o comando `node build.js` e o diretório publicado `dist`. Não há dependências ou variáveis secretas para configurar.
+3. No painel **Forms**, habilite a detecção de formulários (**Enable form detection**). Se habilitar após o primeiro deploy, faça um novo deploy.
+4. Confira se o formulário `jm-checklist` aparece no painel e faça um envio de teste pelo endereço publicado.
+5. Consulte as respostas no painel **Forms → jm-checklist**. Para receber avisos por e-mail, configure uma notificação de formulário no painel com o e-mail desejado.
 
-1. Importe o repositório `genevieve-web-site/JM_checklist`.
-2. Mantenha o diretório raiz como `.` e o preset como **Other**.
-3. Não configure comando de build nem instalação de dependências. O `vercel.json` já define a publicação estática da raiz.
-4. Clique em **Deploy**.
+O build gera todos os campos no HTML estático, permitindo que a Netlify reconheça os campos antes de executar JavaScript. O envio inclui nome, e-mail, estados dos itens, avaliações, respostas e um resumo legível organizado por seção. Envios parciais são permitidos; apenas nome e e-mail são obrigatórios. As imagens de referência estão em `public/`; arquivos do cliente devem ser enviados pelo WhatsApp, conforme indicado nas perguntas.
 
-Não são necessárias variáveis de ambiente. As fontes Playfair Display e Poppins são carregadas pelo Google Fonts.
+Documentação: [configuração do Netlify Forms](https://docs.netlify.com/manage/forms/setup/) e [notificações](https://docs.netlify.com/manage/forms/notifications/).
 
-## Verificação
+## Rascunho
+
+As marcações, avaliações, respostas e identificação ficam no `localStorage` deste navegador. Só são encaminhadas ao clicar em **Enviar respostas**. Rascunhos antigos são preservados. “Reiniciar checklist” desmarca os itens e deixa as avaliações pendentes, preservando os textos e a identificação. Enviar o formulário não apaga o rascunho.
+
+## Verificação local
 
 ```sh
 node --check checklist.js
+node build.js
+python3 -m http.server 8080 --directory dist
 ```
+
+Abra `http://localhost:8080`. A captura real das respostas depende de publicar na Netlify com a detecção de formulários habilitada; o servidor local não processa envios. A confirmação aparece somente após resposta HTTP de sucesso, e falhas preservam os campos para nova tentativa.
