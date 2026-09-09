@@ -96,7 +96,7 @@ button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2p
 <div class="barra" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="47" aria-valuenow="0"><span id="preenchimento"></span></div>
 <div class="conta" aria-live="polite"><span id="feitos">0</span>/<span id="total">0</span><small>revisados</small></div>
 </div>
-<form name="jm-checklist" id="formulario" method="POST" action="/obrigado.html" data-netlify="true" netlify-honeypot="bot-field">
+<form name="jm-checklist" id="formulario" autocomplete="off" method="POST" action="/obrigado.html" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="jm-checklist">
 <p hidden><label>Não preencha este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <input type="hidden" name="resumo" id="resumo">

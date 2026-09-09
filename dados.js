@@ -2,7 +2,7 @@ const SECOES = [
   {
     titulo: "Identidade visual",
     itens: [
-      {id:"iv1", txt:"Logo em JPEG (versão circular e horizontal)", nota:"Recebido — qualidade de WhatsApp, serve só para referência", feito:true},
+      {id:"iv1", txt:"Logo em JPEG (versão circular e horizontal)", nota:"Recebido — qualidade de WhatsApp, serve só para referência"},
       {id:"iv2", txt:"Logo em alta resolução ou vetor (SVG, AI ou EPS)", nota:"Necessário para nitidez em tela retina e para o favicon"},
       {id:"iv3", txt:"Código hex exato das cores da marca", nota:"Verde, dourado e off-white — pedir manual de marca ou arquivo original"},
       {id:"iv4", txt:"Nome exato da fonte dos banners", nota:"Item solicitado pelo cliente — pedir arquivo .otf/.ttf ou link do Google Fonts"},
@@ -12,11 +12,11 @@ const SECOES = [
   {
     titulo:"Conteúdo institucional",
     itens:[
-      {id:"ci1", txt:"Nome da empresa e assinatura", nota:"“Gestão que constrói. Resultados.”", feito:true},
-      {id:"ci2", txt:"Quem somos, missão, visão e valores", nota:"Texto completo do manual de relacionamento comercial", feito:true},
-      {id:"ci3", txt:"Descrição dos quatro serviços", nota:"Departamento Pessoal, RH, Segurança do Trabalho e Gestão Documental", feito:true},
-      {id:"ci4", txt:"Empresas parceiras e obras atendidas", nota:"Base para a seção de clientes e portfólio", feito:true},
-      {id:"ci5", txt:"Referência de tom de comunicação", nota:"Comunicado institucional recebido serve de parâmetro", feito:true},
+      {id:"ci1", txt:"Nome da empresa e assinatura", nota:"“Gestão que constrói. Resultados.”"},
+      {id:"ci2", txt:"Quem somos, missão, visão e valores", nota:"Texto completo do manual de relacionamento comercial"},
+      {id:"ci3", txt:"Descrição dos quatro serviços", nota:"Departamento Pessoal, RH, Segurança do Trabalho e Gestão Documental"},
+      {id:"ci4", txt:"Empresas parceiras e obras atendidas", nota:"Base para a seção de clientes e portfólio"},
+      {id:"ci5", txt:"Referência de tom de comunicação", nota:"Comunicado institucional recebido serve de parâmetro"},
       {id:"ci6", txt:"Depoimentos de clientes", nota:"Texto e autorização de uso, se a seção entrar no site"},
       {id:"ci7", txt:"Fotos reais de equipe, escritório ou obras", nota:"Ou confirmar se o site usará banco de imagens"},
       {id:"ci8", txt:"Definição dos ajustes vindos do Design 2", nota:"Cliente aprovou o Design 1 mas ainda não detalhou o que quer aproveitar"}
@@ -25,8 +25,8 @@ const SECOES = [
   {
     titulo:"Contato e equipe",
     itens:[
-      {id:"ce1", txt:"E-mails oficiais", nota:"iris@ e adm@jmcarvalhoconsultoria.com.br", feito:true},
-      {id:"ce2", txt:"Equipe, cargos e telefones", nota:"Íris (Diretoria), Regina (Comercial), Aymê (SST), Michele (Atendimento)", feito:true},
+      {id:"ce1", txt:"E-mails oficiais", nota:"iris@ e adm@jmcarvalhoconsultoria.com.br"},
+      {id:"ce2", txt:"Equipe, cargos e telefones", nota:"Íris (Diretoria), Regina (Comercial), Aymê (SST), Michele (Atendimento)"},
       {id:"ce3", txt:"Endereço completo", nota:"Caso apareça no rodapé ou em mapa"},
       {id:"ce4", txt:"CNPJ", nota:"Opcional no rodapé — reforça institucionalidade e ajuda no SEO local"},
       {id:"ce5", txt:"Links das redes sociais", nota:"Instagram, Facebook e LinkedIn — contas que entram na gestão mensal"}
@@ -35,8 +35,8 @@ const SECOES = [
   {
     titulo:"Domínio e infraestrutura",
     itens:[
-      {id:"di1", txt:"Domínio já registrado", nota:"jmcarvalhoconsultoria.com.br", feito:true},
-      {id:"di2", txt:"E-mails corporativos ativos no domínio", nota:"Indica que já existe provedor configurado hoje", feito:true},
+      {id:"di1", txt:"Domínio já registrado", nota:"jmcarvalhoconsultoria.com.br"},
+      {id:"di2", txt:"E-mails corporativos ativos no domínio", nota:"Indica que já existe provedor configurado hoje"},
       {id:"di3", txt:"Acesso ao painel de DNS ou ao registrador", nota:"Para apontar o domínio ao novo site"},
       {id:"di4", txt:"Confirmação do provedor de e-mail atual", nota:"Evita derrubar os e-mails corporativos ao mexer no DNS"}
     ]
@@ -44,7 +44,7 @@ const SECOES = [
   {
     titulo:"Fechamento comercial",
     itens:[
-      {id:"fc1", txt:"Proposta apresentada ao cliente", nota:"Proposta nº 2026.48, de 31/08/2026", feito:true},
+      {id:"fc1", txt:"Proposta apresentada ao cliente", nota:"Proposta nº 2026.48, de 31/08/2026"},
       {id:"fc2", txt:"Aceite da proposta"},
       {id:"fc3", txt:"Pagamento da primeira parcela", nota:"Marca o início oficial do desenvolvimento"},
       {id:"fc4", txt:"Definição da data de virada do domínio", nota:"Combinar horário para minimizar indisponibilidade"}

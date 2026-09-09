@@ -1,28 +1,7 @@
-const CHAVE = 'jm-carvalho:checklist';
-const CHAVE_RESPOSTAS = 'jm-carvalho:checklist:respostas';
-const CHAVE_AVALIACOES = 'jm-carvalho:checklist:avaliacoes';
-const estado = Object.fromEntries(SECOES.flatMap(s => s.itens.map(i => [i.id, !!i.feito])));
+const estado = Object.fromEntries(SECOES.flatMap(s => s.itens.map(i => [i.id, false])));
 const respostas = {};
 const avaliacoes = {};
 const formulario = document.getElementById('formulario');
-
-function ler(chave) {
-  try {
-    const dados = JSON.parse(localStorage.getItem(chave));
-    return dados && typeof dados === 'object' && !Array.isArray(dados) ? dados : {};
-  } catch { return {}; }
-}
-
-function salvar() {
-  try {
-    localStorage.setItem(CHAVE, JSON.stringify(estado));
-    localStorage.setItem(CHAVE_RESPOSTAS, JSON.stringify(respostas));
-    localStorage.setItem(CHAVE_AVALIACOES, JSON.stringify(avaliacoes));
-    document.getElementById('aviso').textContent = '';
-  } catch {
-    document.getElementById('aviso').textContent = 'O rascunho não está sendo salvo neste navegador. Envie suas respostas antes de fechar a página.';
-  }
-}
 
 function atualizar() {
   let total = 0;
@@ -54,14 +33,10 @@ function atualizar() {
 }
 
 function carregar() {
-  const salvos = ler(CHAVE);
-  const textos = ler(CHAVE_RESPOSTAS);
-  const decisoes = ler(CHAVE_AVALIACOES);
   if (!document.querySelector('#lista section')) document.getElementById('lista').innerHTML = renderizarSecoes();
   SECOES.forEach(sec => sec.itens.forEach(it => {
-    if (typeof salvos[it.id] === 'boolean') estado[it.id] = salvos[it.id];
-    respostas[it.id] = typeof textos[it.id] === 'string' ? textos[it.id] : '';
-    avaliacoes[it.id] = ['Aprovado', 'Reprovado', 'Pendente'].includes(decisoes[it.id]) ? decisoes[it.id] : 'Pendente';
+    respostas[it.id] = '';
+    avaliacoes[it.id] = 'Pendente';
     const linha = document.querySelector(`[data-id="${it.id}"]`);
     if (sec.imagem) {
       linha.querySelectorAll('input[type="radio"]').forEach(input => {
@@ -69,7 +44,6 @@ function carregar() {
         input.addEventListener('change', () => {
           avaliacoes[it.id] = input.value;
           atualizar();
-          salvar();
         });
       });
     } else {
@@ -78,7 +52,6 @@ function carregar() {
       input.addEventListener('change', () => {
         estado[it.id] = input.checked;
         atualizar();
-        salvar();
       });
     }
     const campo = document.getElementById(`resposta-${it.id}`);
@@ -86,29 +59,35 @@ function carregar() {
     campo.addEventListener('input', () => {
       respostas[it.id] = campo.value;
       atualizar();
-      salvar();
     });
   }));
   atualizar();
 }
 
-document.getElementById('limpar').addEventListener('click', () => {
+function reiniciar() {
+  formulario.reset();
+  document.getElementById('enviar').disabled = false;
+  document.getElementById('enviar').textContent = 'Enviar respostas';
+  document.getElementById('status-envio').textContent = '';
   SECOES.forEach(sec => sec.itens.forEach(it => {
     estado[it.id] = false;
+    respostas[it.id] = '';
+    document.getElementById(`resposta-${it.id}`).value = '';
     avaliacoes[it.id] = 'Pendente';
     if (sec.imagem) formulario.elements[`${it.id}-avaliacao`].value = 'Pendente';
     else document.getElementById(it.id).checked = false;
   }));
   atualizar();
-  salvar();
-});
+}
+
+document.getElementById('limpar').addEventListener('click', reiniciar);
+window.addEventListener('pageshow', reiniciar);
 
 formulario.addEventListener('submit', async event => {
   event.preventDefault();
   const botao = document.getElementById('enviar');
   if (botao.disabled) return;
   atualizar();
-  salvar();
   const dados = new FormData(formulario);
   // Envia também o estado dos itens desmarcados, que o HTML omite por padrão.
   SECOES.filter(sec => !sec.imagem).forEach(sec => sec.itens.forEach(it => {

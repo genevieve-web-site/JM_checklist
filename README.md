@@ -1,6 +1,6 @@
 # Checklist — JM Carvalho Consultoria
 
-Formulário de fechamento e revisão do site, com 47 itens em 12 seções e sete imagens de referência. Mantém os 11 itens inicialmente concluídos. Os itens de design têm opções Aprovado, Reprovado e Pendente; todos os itens têm campo de resposta. O progresso conta itens concluídos e avaliações respondidas, inclusive reprovações.
+Formulário de fechamento e revisão do site, com 47 itens em 12 seções e sete imagens de referência. Inicia sempre com todos os itens pendentes e os campos vazios. Os itens de design têm opções Aprovado, Reprovado e Pendente; todos os itens têm campo de resposta. O progresso conta itens concluídos e avaliações respondidas, inclusive reprovações.
 
 ## Publicar na Netlify
 
@@ -14,9 +14,9 @@ O build gera todos os campos no HTML estático, permitindo que a Netlify reconhe
 
 Documentação: [configuração do Netlify Forms](https://docs.netlify.com/manage/forms/setup/) e [notificações](https://docs.netlify.com/manage/forms/notifications/).
 
-## Rascunho
+## Preenchimento
 
-As marcações, avaliações e respostas ficam no `localStorage` deste navegador. Só são encaminhadas ao clicar em **Enviar respostas**. Rascunhos antigos são preservados. “Reiniciar checklist” desmarca os itens e deixa as avaliações pendentes, preservando os textos. Enviar o formulário não apaga o rascunho.
+O formulário começa vazio ao abrir, recarregar ou retornar à página pelo histórico do navegador. Não salva nem recupera rascunhos do `localStorage`. “Reiniciar checklist” limpa marcações, avaliações e respostas. As respostas só são encaminhadas ao clicar em **Enviar respostas**; em caso de falha no envio, permanecem na página para uma nova tentativa.
 
 ## Verificação local
 
