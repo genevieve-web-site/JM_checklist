@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checklist — JM Carvalho Consultoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#12362A;--verde-med:#1D5240;--ouro:#B8863A;--ouro-claro:#D4AF6A;--creme:#F8F1E6;--papel:#FDFAF4;--tinta:#2B2822;--tinta-fraca:#6E675C;--linha:#E3D9C8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--creme);color:var(--tinta);font-family:"Poppins",system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.folha{max-width:820px;margin:0 auto;padding:0 22px 90px}
+header{padding:46px 0 26px;border-bottom:1px solid var(--linha)}
+.marca{display:flex;align-items:baseline;gap:10px;font-family:"Playfair Display",serif;font-size:26px;letter-spacing:.01em}
+.marca .jm{color:var(--ouro);font-weight:600}
+.marca .carv{color:var(--verde);font-weight:500}
+.marca .risco{width:1px;height:22px;background:var(--linha);align-self:center}
+.marca .sub{font-family:"Poppins",sans-serif;font-size:10px;font-weight:400;letter-spacing:.34em;color:var(--ouro);align-self:center}
+h1{font-family:"Playfair Display",serif;font-weight:500;font-size:34px;line-height:1.2;color:var(--verde);margin:26px 0 6px}
+.legenda{color:var(--tinta-fraca);font-size:14px;max-width:56ch;margin:0}
+.progresso{display:flex;align-items:center;gap:16px;padding:22px 0 26px;border-bottom:1px solid var(--linha)}
+.barra{flex:1;height:3px;background:var(--linha);position:relative;overflow:hidden}
+.barra span{position:absolute;inset:0 auto 0 0;width:0%;background:linear-gradient(90deg,var(--ouro),var(--ouro-claro));transition:width .35s cubic-bezier(.4,0,.2,1)}
+.conta{font-family:"Playfair Display",serif;font-size:19px;color:var(--verde);white-space:nowrap}
+.conta small{font-family:"Poppins",sans-serif;font-size:12px;font-weight:300;color:var(--tinta-fraca);margin-left:5px}
+section{padding:34px 0 6px}
+section + section{border-top:1px solid var(--linha)}
+.titulo-secao{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:16px}
+h2{font-family:"Playfair Display",serif;font-weight:500;font-size:21px;color:var(--verde);margin:0}
+.parcial{font-size:12px;color:var(--tinta-fraca);white-space:nowrap}
+.item{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid rgba(227,217,200,.6)}
+.item:last-child{border-bottom:none}
+.marcador{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:19px;height:19px;margin:2px 0 0;border:1.5px solid var(--ouro);border-radius:50%;background:transparent;cursor:pointer;position:relative;transition:background .18s,border-color .18s}
+.marcador:hover{background:rgba(184,134,58,.12)}
+.marcador:checked{background:var(--verde);border-color:var(--verde)}
+.marcador:checked::after{content:"";position:absolute;left:6px;top:2.5px;width:4px;height:9px;border:solid var(--ouro-claro);border-width:0 1.6px 1.6px 0;transform:rotate(43deg)}
+.marcador:focus-visible{outline:2px solid var(--verde-med);outline-offset:3px}
+.corpo{flex:1;min-width:0}
+.rotulo{display:block;cursor:pointer;color:var(--tinta);transition:color .18s}
+.rotulo strong{font-weight:500}
+.nota{display:block;font-size:13px;color:var(--tinta-fraca);margin-top:2px}
+.item.pronto .rotulo,.item.pronto .nota{color:#A79E90}
+.item.pronto .rotulo strong{text-decoration:line-through;text-decoration-color:rgba(184,134,58,.6)}
+.selo{flex:0 0 auto;font-size:10px;letter-spacing:.14em;padding:4px 11px;border:1px solid var(--linha);border-radius:999px;color:var(--tinta-fraca);background:var(--papel);white-space:nowrap;margin-top:1px}
+.item.pronto .selo{border-color:var(--verde);background:var(--verde);color:var(--ouro-claro)}
+footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--linha);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.assinatura{font-size:12px;color:var(--tinta-fraca)}
+.assinatura b{color:var(--verde);font-weight:500}
+button.limpar{font-family:"Poppins",sans-serif;font-size:12px;font-weight:400;color:var(--tinta-fraca);background:none;border:1px solid var(--linha);border-radius:999px;padding:7px 16px;cursor:pointer;transition:border-color .18s,color .18s}
+button.limpar:hover{border-color:var(--ouro);color:var(--ouro)}
+button.limpar:focus-visible{outline:2px solid var(--verde-med);outline-offset:2px}
+.aviso{font-size:12px;color:var(--tinta-fraca);padding:10px 0 0}
+@media(max-width:560px){h1{font-size:27px}.selo{font-size:9px;padding:3px 9px}.item{gap:11px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="folha">
+<header>
+<div class="marca"><span class="jm">JM</span><span class="risco"></span><span class="carv">Carvalho</span><span class="sub">CONSULTORIA</span></div>
+<h1>Checklist de fechamento<br>do site institucional</h1>
+<p class="legenda">Controle do que já está em mãos e do que ainda precisa vir do cliente para publicar o site em jmcarvalhoconsultoria.com.br.</p>
+</header>
+<div class="progresso">
+<div class="barra" role="progressbar" aria-label="Progresso do checklist" aria-valuemin="0" aria-valuemax="26" aria-valuenow="0"><span id="preenchimento"></span></div>
+<div class="conta" aria-live="polite"><span id="feitos">0</span>/<span id="total">0</span><small>concluídos</small></div>
+</div>
+<div id="lista"></div>
+<footer><p class="assinatura">Aline Desenvolvimento Web · para <b>JM Carvalho Consultoria</b></p><button type="button" class="limpar" id="limpar">Reiniciar checklist</button></footer>
+<p class="aviso" id="aviso" role="status"></p>
+</main>
+<script src="checklist.js"></script>
+</body>
+</html>
