@@ -19,7 +19,7 @@ function atualizar() {
       linha.classList.toggle('pronto', !sec.imagem && estado[it.id]);
       linha.classList.toggle('reprovado', status === 'Reprovado');
       linha.querySelector('.selo').textContent = status.toUpperCase();
-      resumo.push(`${it.txt}\nStatus: ${status}\nResposta: ${respostas[it.id] || 'Não informada'}\n`);
+      resumo.push(`${it.txt}\nStatus: ${status}\n${it.pergunta ? it.pergunta + '\n' : ''}Resposta: ${respostas[it.id] || 'Não informada'}\n`);
     });
     feitos += parcial;
     document.getElementById(`parcial-${indice}`).textContent = `${parcial} de ${sec.itens.length}`;

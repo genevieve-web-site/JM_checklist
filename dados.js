@@ -44,7 +44,7 @@ const SECOES = [
     itens:[
       {id:"fc1", txt:"Proposta apresentada ao cliente", nota:"Proposta nº 2026.48, de 31/08/2026"},
       {id:"fc2", txt:"Aceite da proposta"},
-      {id:"fc3", txt:"Pagamento da primeira parcela", nota:"Marca o início oficial do desenvolvimento"},
+      {id:"fc3", txt:"Pagamento da primeira parcela", nota:"Marca o início oficial do desenvolvimento. Chave Pix: 35997382410.", pergunta:"Vai precisar de emissão de nota fiscal de serviço referente ao valor total do serviço?", placeholder:"Responda sim ou não."},
       {id:"fc4", txt:"Definição da data de virada do domínio", nota:"Combinar horário para minimizar indisponibilidade"}
     ]
   },
