@@ -28,7 +28,6 @@ const SECOES = [
       {id:"ce2", txt:"Equipe, cargos e telefones", nota:"Íris (Diretoria), Regina (Comercial), Aymê (SST), Michele (Atendimento)"},
       {id:"ce3", txt:"Endereço completo", nota:"Caso apareça no rodapé ou em mapa"},
       {id:"ce4", txt:"CNPJ", nota:"Opcional no rodapé — reforça institucionalidade e ajuda no SEO local"},
-      {id:"ce5", txt:"Links das redes sociais", nota:"Instagram, Facebook e LinkedIn — contas que entram na gestão mensal"}
     ]
   },
   {
@@ -58,7 +57,7 @@ const SECOES = [
       {id:"home3", txt:"Título principal estratégico: manter, trocar ou remover?", nota:"“Gestão Documental, Administrativa e Operacional pra Construção Civil.” Se quiser trocar, escreva o novo título."},
       {id:"home4", txt:"Texto abaixo do título principal: manter, trocar ou apagar?", nota:"Se quiser trocar, escreva o texto que deseja exibir abaixo do título."},
       {id:"home5", txt:"Botão Conferir vagas: manter ou remover?", nota:"Se mantiver, o clique deve abrir o WhatsApp de atendimento ou um site onde vocês já publicam vagas? Informe o destino e envie o link, se houver. Para retirar o botão, responda “Remover”."},
-      {id:"home6", txt:"Botões flutuantes à direita: manter, remover ou trocar?", nota:"Ícones de WhatsApp, LinkedIn e Instagram. Informe quais deseja manter, remover ou substituir e os links correspondentes."},
+      {id:"home6", txt:"Botões flutuantes à direita: manter, remover ou trocar?", nota:"Ícones de WhatsApp, LinkedIn e Instagram. Informe quais deseja manter, remover ou substituir."},
       {id:"home7", txt:"Dados “10+ empresas parceiras” e “20+ obras atendidas”: manter, alterar ou remover?", nota:"Se quiser alterar, informe os números e textos corretos."},
       {id:"home8", txt:"Vídeo da página inicial: manter ou trocar?", nota:"Se tiver outra opção, envie o vídeo pelo WhatsApp. Vamos analisar a qualidade da mídia e avaliar a substituição."}
     ]
